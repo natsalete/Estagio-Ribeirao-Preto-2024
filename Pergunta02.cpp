@@ -1,35 +1,34 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
-/*Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores
-(exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar onde, informado um número,
-ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado pertence ou não a sequência.*/
+/*2) Escreva um programa que verifique, em uma string, a existência da letra ‘a’, seja maiúscula ou minúscula, além de informar a quantidade de vezes em que ela ocorre.
 
-int fib(int n){
-    if(n == 0 || n == 1){
-        return 1;
+IMPORTANTE: Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;
+*/
+
+int main() {
+    string texto;
+    int contador = 0;
+
+    // Solicita ao usuário que insira uma string
+    cout << "Digite um texto: ";
+    getline(cin, texto);
+
+    // Percorre cada caractere da string
+    for (char c : texto) {
+        // Verifica se o caractere é 'a' ou 'A'
+        if (c == 'a' || c == 'A') {
+            contador++;
+        }
     }
-    return fib(n -1) + fib(n-2);
-}
 
-int main(){
-    int n;
-
-    cin >> n;
-
-    for(int i = 0; i < n+n; i++){
-         //cout << "fib(" << i << ") = " << fib(i) << endl;
-         if (fib(i) == n){
-            cout << "O numero informado pertence a sequencia." << endl;
-            break;
-         }else if(fib(i) > n){
-             cout << "O numero informado nao pertence a sequencia." << endl;
-             break;
-         }
+    // Verifica se a letra 'a' foi encontrada e exibe o resultado
+    if (contador > 0) {
+        cout << "A letra 'a' foi encontrada " << contador << " vez(es) no texto." << endl;
+    } else {
+        cout << "A letra 'a' nao foi encontrada no texto." << endl;
     }
+
     return 0;
 }
-
-
-

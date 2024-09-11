@@ -2,30 +2,31 @@
 
 using namespace std;
 
-/*Observe o trecho de código abaixo:
-int INDICE = 13, SOMA = 0, K = 0;
+/*Dado a sequência de Fibonacci, onde se inicia por 0 e 1 e o próximo valor sempre será a soma dos 2 valores anteriores
+(exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...), escreva um programa na linguagem que desejar onde, informado um número,
+ele calcule a sequência de Fibonacci e retorne uma mensagem avisando se o número informado pertence ou não a sequência.*/
 
-enquanto K < INDICE faça
-{
-
-K = K + 1;
-
-SOMA = SOMA + K;
-
+int fib(int n){
+    if(n == 0 || n == 1){
+        return 1;
+    }
+    return fib(n -1) + fib(n-2);
 }
-imprimir(SOMA);
-
-Ao final do processamento, qual será o valor da variável SOMA?*/
 
 int main(){
-    int INDICE = 3, SOMA = 0, K = 0;
+    int n;
 
-    while(K < INDICE){
-        K++;
-        SOMA += K;
+    cin >> n;
+
+    for(int i = 0; i < n+n; i++){
+         //cout << "fib(" << i << ") = " << fib(i) << endl;
+         if (fib(i) == n){
+            cout << "O numero informado pertence a sequencia." << endl;
+            break;
+         }else if(fib(i) > n){
+             cout << "O numero informado nao pertence a sequencia." << endl;
+             break;
+         }
     }
-
-    cout << "O valor da variavel SOMA = " << SOMA << endl;
     return 0;
 }
-
